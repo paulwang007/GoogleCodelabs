@@ -25,7 +25,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.android.codelabs.lifecycle.R;
-
+import com.example.android.codelabs.lifecycle.databinding.ChronoActivityDatabindingBinding;
 
 public class ChronoActivity3 extends AppCompatActivity {
 
@@ -36,7 +36,6 @@ public class ChronoActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.chrono_activity_3);
-
         mLiveDataTimerViewModel = new ViewModelProvider(this).get(LiveDataTimerViewModel.class);
 
         subscribe();
@@ -54,5 +53,6 @@ public class ChronoActivity3 extends AppCompatActivity {
         };
 
         //TODO: observe the ViewModel's elapsed time
+        mLiveDataTimerViewModel.getElapsedTime().observe(this, elapsedTimeObserver);
     }
 }
